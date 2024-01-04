@@ -1,0 +1,6 @@
+Volttron Point Name,Point Name,Writable
+power,power,TRUE
+status,state,TRUE
+average,average,TRUE
+priority,priority,TRUE
+hour,hour,TRUE

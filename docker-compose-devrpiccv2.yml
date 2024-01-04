@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+  cc2:
+    container_name: cc2
+    hostname: cc2
+    build:
+      context: .
+      dockerfile: Dockerfile-devrpiccv2
+      args:
+        install_rmq: 'false'
+    image: eclipsevolttron/volttroncc2:v-docker-dev-latest
+    ports:
+      # host_port:container_port
+      # http port for volttron central
+      - 8443:8443
+    volumes:
+      - /home/pi/volttron_config/platform_config_nirecc1.yml:/platform_config.yml
+      - /home/pi/volttron_config/configs:/home/volttron/configs
+      - /home/pi/volttron_config/EMSAgents:/code/volttron/EMSAgents
+      - /home/pi/volttron_config/core:/startup
+      - /home/pi/volttron_config/cc2-volume:/home/volttron/db
+    environment:
+      - CONFIG=/home/volttron/configs
+      - LOCAL_USER_ID=1000
+
+volumes:
+  cc2-volume:
+    name: cc2-data
