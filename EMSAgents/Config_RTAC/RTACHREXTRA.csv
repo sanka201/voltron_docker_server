@@ -1,0 +1,62 @@
+Reference Point Name,Volttron Point Name,Units,Units Details,Modbus Register,Writable,Point Address,Notes
+GT_Reliable,GT_Reliable,int,0.00-2000.00,>h,TRUE,222,CO2 Reading 0.00-2000.0
+GT_Initialized,GT_Initialized,int,0.00-2000.00,>h,TRUE,223,CO2 Reading 0.00-2000.0
+GT_FollowingLoad,GT_FollowingLoad,int,0.00-2000.01,>h,TRUE,224,CO2 Reading 0.00-2000.1
+GT_Islanded,GT_Islanded,int,0.00-2000.02,>h,TRUE,225,CO2 Reading 0.00-2000.2
+P_HA,P_HA,int,0.00-2000.03,>h,TRUE,226,CO2 Reading 0.00-2000.3
+SINV1_offline,SINV1_offline,int,0.00-2000.04,>h,TRUE,227,CO2 Reading 0.00-2000.4
+SINV2_offline,SINV2_offline,int,0.00-2000.05,>h,TRUE,228,CO2 Reading 0.00-2000.5
+SINV3_offline,SINV3_offline,int,0.00-2000.06,>h,TRUE,229,CO2 Reading 0.00-2000.6
+SINV4_offline,SINV4_offline,int,0.00-2000.07,>h,TRUE,230,CO2 Reading 0.00-2000.7
+SINV5_offline,SINV5_offline,int,0.00-2000.08,>h,TRUE,231,CO2 Reading 0.00-2000.8
+ATS_offline,ATS_offline,int,0.00-2000.09,>h,TRUE,232,CO2 Reading 0.00-2000.9
+LOAD1_offline,LOAD1_offline,int,0.00-2000.10,>h,TRUE,233,CO2 Reading 0.00-2000.10
+LOAD4_offline,LOAD4_offline,int,0.00-2000.11,>h,TRUE,234,CO2 Reading 0.00-2000.11
+LOAD5_offline,LOAD5_offline,int,0.00-2000.12,>h,TRUE,235,CO2 Reading 0.00-2000.12
+DG_fuel_level,DG_fuel_level,int,0.00-2000.13,>h,TRUE,236,CO2 Reading 0.00-2000.13
+DG_status,DG_status,int,0.00-2000.14,>h,TRUE,237,CO2 Reading 0.00-2000.14
+P_in,P_in,int,0.00-2000.15,>h,TRUE,238,CO2 Reading 0.00-2000.15
+P_batt,P_batt,int,0.00-2000.16,>h,TRUE,239,CO2 Reading 0.00-2000.16
+P_out,P_out,int,0.00-2000.17,>h,TRUE,240,CO2 Reading 0.00-2000.17
+status,status,int,0.00-2000.18,>h,TRUE,241,CO2 Reading 0.00-2000.18
+cmd_manual,cmd_manual,int,0.00-2000.19,>h,TRUE,242,CO2 Reading 0.00-2000.19
+cmd_drop,cmd_drop,int,0.00-2000.20,>h,TRUE,243,CO2 Reading 0.00-2000.20
+cmd_use,cmd_use,,0.00-2000.21,>h,TRUE,244,CO2 Reading 0.00-2000.21
+CmdToWrite,CmdToWrite,int,0.00-2000.22,>h,TRUE,245,GNIRE_MODBUS.EV_CmdToWrite
+Options,Options,int,0.00-2000.23,>h,TRUE,246,GNIRE_MODBUS.EV_Options
+Set_Value,Set_Value,int,0.00-2000.24,>h,TRUE,247,GNIRE_MODBUS.EV_Set_Value
+Current,Current,int,0.00-2000.25,>h,TRUE,248,GNIRE_MODBUS.EV_Current
+True_power,True_power,int,0.00-2000.26,>h,TRUE,249,GNIRE_MODBUS.EV_True_power
+PF,PF,int,0.00-2000.27,>h,TRUE,250,GNIRE_MODBUS.EV_PF
+Crest_factor,Crest_factor,int,0.00-2000.28,>h,TRUE,251,GNIRE_MODBUS.EV_Crest_factor
+Load_mode,Load_mode,int,0.00-2000.29,>h,TRUE,252,GNIRE_MODBUS.EV_Load_mode
+Bidirectional_mode,Bidirectional_mode,int,0.00-2000.30,>h,TRUE,253,GNIRE_MODBUS.EV_Bidirectional_mode
+Priority_mode,Priority_mode,int,0.00-2000.31,>h,TRUE,254,GNIRE_MODBUS.EV_Priority_mode
+Ia,Ia,int,0.00-2000.32,>h,TRUE,255,GNIRE_MODBUS.EV_Ia
+Ib,Ib,int,0.00-2000.33,>h,TRUE,256,GNIRE_MODBUS.EV_Ib
+Ic,Ic,int,0.00-2000.34,>h,TRUE,257,GNIRE_MODBUS.EV_Ic
+Voltage,Voltage,int,0.00-2000.35,>h,TRUE,258,GNIRE_MODBUS.EV_Voltage
+Frequency,Frequency,int,0.00-2000.36,>h,TRUE,259,GNIRE_MODBUS.EV_Frequency
+Q3ph,Q3ph,int,0.00-2000.37,>h,TRUE,260,GNIRE_MODBUS.EV_Q3ph
+S3ph,S3ph,int,0.00-2000.38,>h,TRUE,261,GNIRE_MODBUS.EV_S3ph
+Pa,Pa,int,0.00-2000.39,>h,TRUE,262,GNIRE_MODBUS.EV_Pa
+Pb,Pb,int,0.00-2000.40,>h,TRUE,263,GNIRE_MODBUS.EV_Pb
+Pc,Pc,int,0.00-2000.41,>h,TRUE,264,GNIRE_MODBUS.EV_Pc
+PFa,PFa,int,0.00-2000.42,>h,TRUE,265,GNIRE_MODBUS.EV_PFa
+PFb,PFb,int,0.00-2000.43,>h,TRUE,266,GNIRE_MODBUS.EV_PFb
+PFc,PFc,int,0.00-2000.44,>h,TRUE,267,GNIRE_MODBUS.EV_PFc
+Crest_factor_a,Crest_factor_a,int,0.00-2000.45,>h,TRUE,268,GNIRE_MODBUS.EV_Crest_factor_a
+Crest_factor_b,Crest_factor_b,int,0.00-2000.46,>h,TRUE,269,GNIRE_MODBUS.EV_Crest_factor_b
+Crest_factor_c,Crest_factor_c,int,0.00-2000.47,>h,TRUE,270,GNIRE_MODBUS.EV_Crest_factor_c
+Sa,Sa,int,0.00-2000.48,>h,TRUE,271,GNIRE_MODBUS.EV_Sa
+Sb,Sb,int,0.00-2000.49,>h,TRUE,272,GNIRE_MODBUS.EV_Sb
+Sc,Sc,int,0.00-2000.50,>h,TRUE,273,GNIRE_MODBUS.EV_Sc
+Profile_option,Profile_option,int,0.00-2000.49,>h,TRUE,274,GNIRE_MODBUS.EV_Profile_options
+Optype_EV,Optype_EV,int,0.00-2000.50,>h,TRUE,275,GNIRE_MODBUS.EV_Op_type
+Hour,Hour,int,0.00-2000.50,>h,TRUE,276,Hour
+Min,Min,int,0.00-2000.50,>h,TRUE,277,Min
+Sec,Sec,int,0.00-2000.50,>h,TRUE,278,Sec
+Simhour,Simhour,int,0.00-2000.50,>h,TRUE,279,Simhour
+Simhour_ahead,Simhour_ahead,int,0.00-2000.50,>h,TRUE,280,simhourahead
+Minleft,Minleft,int,0.00-2000.50,>h,TRUE,281,Minleft
+Secleft,Secleft,int,0.00-2000.50,>h,TRUE,282,Secleft

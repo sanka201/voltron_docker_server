@@ -1,0 +1,9 @@
+Reference Point Name,Volttron Point Name,Units,Unit Details,BACnet Object Type,Property,Writable,Index,Write Priority,Notes
+AO01,AO01,noUnits,(default 100.0),analogOutput,presentValue,FALSE,1,,
+B1,B1,noUnits,(default 100.0),binaryOutput,presentValue,TRUE,125,16,
+B2,B2,noUnits,(default 100.0),binaryOutput,presentValue,TRUE,141,16,
+B3,B3,noUnits,(default 100.0),binaryOutput,presentValue,TRUE,133,16,
+B4,B4,noUnits,(default 100.0),binaryOutput,presentValue,TRUE,135,16,
+B5,B5,noUnits,(default 100.0),binaryOutput,presentValue,TRUE,137,16,
+B6,B6,noUnits,(default 100.0),binaryOutput,presentValue,TRUE,139,16,
+

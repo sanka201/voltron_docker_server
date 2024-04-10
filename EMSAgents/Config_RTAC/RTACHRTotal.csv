@@ -1,0 +1,14 @@
+Reference Point Name,Volttron Point Name,Units,Units Details,Modbus Register,Writable,Point Address,Notes
+Enable,Enable,N/A,0-1,>h,TRUE,0,Enable_control Reading 0.00-2000.0
+Threshold,Threshold,Kw,0.00-2000.00,>h,TRUE,1,CO2 Reading 0.00-2000.0
+Trigger,Trigger,Kw,0.00-2000.00,>h,TRUE,2,CO2 Reading 0.00-2000.0
+Day,Day,Kw,0.00-2000.00,>h,TRUE,3,CO2 Reading 0.00-2000.0
+Hour,Hour,Kw,0.00-2000.00,>h,TRUE,4,CO2 Reading 0.00-2000.0
+Minute,Minute,Kw,0.00-2000.00,>h,TRUE,5,CO2 Reading 0.00-2000.0
+Second,Second,Kw,0.00-2000.00,>h,TRUE,6,CO2 Reading 0.00-2000.0
+Generation,Generation,Kw,0.00-2000.00,>h,TRUE,7,CO2 Reading 0.00-2000.0
+Load,Load,Kw,0.00-2000.00,>h,TRUE,8,CO2 Reading 0.00-2000.0
+ATS,ATS,N/A,0.00-2000.00,>h,TRUE,9,CO2 Reading 0.00-2000.0
+PV_Shed_En,PV_Shed_En,Kw,0.00-2000.00,>h,TRUE,10,CO2 Reading 0.00-2000.0
+PV_Follow_En,PV_Follow_En,Kw,0.00-2000.00,>h,TRUE,11,CO2 Reading 0.00-2000.0
+PV_Shed,PV_Shed,Kw,0.00-2000.00,>h,TRUE,12,CO2 Reading 0.00-2000.0

@@ -1,0 +1,4 @@
+Reference Point Name,Volttron Point Name,Units,Units Details,Modbus Register,Writable,Point Address,Notes
+Inv_output_current,Inv_output_current,V,0.00-2000.00,>h,TRUE,0,CO2 Reading 0.00-2000.0
+l4s1cmd,l4s1,on/off,0.00-2000.00,BOOL,TRUE,0,CO2 Reading 0.00-2000.0
+

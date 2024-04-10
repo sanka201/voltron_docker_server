@@ -1,0 +1,13 @@
+
+{
+
+  "ENCLAVE_Bridge": {"vip-address":"tcp://10.147.14.6:22916",
+                 "instance-name":"ENCLAVE_Bridge",
+                 "serverkey":"mPXOeg4dX2l_kJR8MubCnVijdU0Kk0bQPWQyvx_0JGk"},
+  "NIRE_540_ASSETS": {"vip-address":"tcp://192.168.128.10:22952",
+                 "instance-name":"NIRE_540_ASSETS",
+                 "serverkey":"DnWjB1h5K838ue1OsAZidiXslF_CaAOBA3CFQTTg1SU"},
+  "NIRE_GLEAMM_ASSETS": {"vip-address":"tcp://192.168.128.10:22960",
+                 "instance-name":"NIRE_GLEAMM_ASSETS",
+                 "serverkey":"ySNg_phwyStU9EvxghjG7Fs-xUuSPf_0AZ7D7t_YnVk"}
+}

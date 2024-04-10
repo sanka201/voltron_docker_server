@@ -1,0 +1,11 @@
+Name,Priority,Microgrid,Building,Consumption
+PT,1,Banshee_1,1,1500
+PT,6,Banshee_1,2,1500
+PT,5,Banshee_1,3,1500
+PT,2,Banshee_1,4,1500
+PT,4,Banshee_1,5,1500
+PT,3,Banshee_1,6,1500
+PT,9,Banshee_1,7,1500
+PT,8,Banshee_1,8,1500
+PT,7,Banshee_1,9,1500
+PT,10,Banshee_1,10,1500

@@ -1,4 +1,4 @@
-ARG image_user=arm32v7
+ARG image_user=amd64
 ARG image_repo=debian
 ARG image_tag=buster
 

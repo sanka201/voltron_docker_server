@@ -8,9 +8,9 @@ import logging
 import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
-sys.path.insert(0, '/code/volttron/VLGAgent/vLGAgent/Utility')
-sys.path.insert(0, '/code/volttron/VLGAgent/vLGAgent/Core')
-sys.path.insert(0, '/code/volttron/VLGAgent/vLGAgent/Interface')
+sys.path.insert(0, '/home/sanka/volttron/VLGAgent/vLGAgent/Utility')
+sys.path.insert(0, '/home/sanka/volttron/VLGAgent/vLGAgent/Core')
+sys.path.insert(0, '/home/sanka/volttron/VLGAgent/vLGAgent/Interface')
 import VLG as VLG
 import Interface as Interface
 import status as status
@@ -65,6 +65,8 @@ class Vlgagent(Agent):
 
         # Set a default configuration to ensure that self.configure is called immediately to setup
         # the agent.
+        self.sendcount=0
+        self.prevhour=-1
         self.load_groups_consumption={}
         self.vip.config.set_default("config", self.default_config)
         #self.Loads=status.Status_NIRE_D2D(self.csvpath)
@@ -112,7 +114,7 @@ class Vlgagent(Agent):
 
         self.vip.pubsub.subscribe(peer='pubsub',
                                   prefix=topic,
-                                  callback=self._handle_publish)
+                                  callback=self._handle_publish,all_platforms=True),
 
     def _handle_publish(self, peer, sender, bus, topic, headers, message):
         """
@@ -128,15 +130,19 @@ class Vlgagent(Agent):
     def dowork(self):
         #Threashold={1:2700,2:600,3:1000}
         [Threashold,load_consumption,GAMSHourFlag,timesync]=self.Loads.get_actual_load_consumption()
-        self.load_groups_consumption=self.load_groups.load_groups(Threashold,load_consumption)
         self.comms.publish_priority_consumption(load_consumption)
-        if GAMSHourFlag==1:
-           
+        [Threashold,load_consumption,GAMSHourFlag,timesync]=self.Loads.get_actual_load_consumption()
+        self.load_groups_consumption=self.load_groups.load_groups(Threashold,load_consumption)
+        if (self.prevhour != timesync['GAMS_Hr']) and self.sendcount==0:
             self.comms.send_threshold(self.load_groups_consumption,timesync)
+            self.sendcount=self.sendcount+1
+            if self.sendcount==1:
+                self.sendcount=0
+                #self.comms.send_threshold(self.load_groups_consumption,timesync)
+                self.prevhour=timesync['GAMS_Hr']
             
-        print("I am VLG agent",'##############################',type(self.load_groups_consumption))
+        #print("I am VLG agent",'##############################',type(self.load_groups_consumption))
         
-    
         
     @Core.receiver("onstart")
     def onstart(self, sender, **kwargs):

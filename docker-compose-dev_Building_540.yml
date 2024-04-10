@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  Building_540:
+    network_mode: "host"
+    container_name: Building_540
+    hostname: Building_540
+    build:
+      context: .
+      dockerfile: Dockerfile-dev_Building_540
+      args:
+        install_rmq: 'false'
+    image: eclipsevolttron/volttron:v-docker-dev-latest
+    ports:
+      # host_port:container_port
+      # http port for volttron central
+      - 8445:8445
+      - 22918:22918
+    volumes:
+      - ./platform_config_Building_540.yml:/platform_config.yml
+      - ./configs:/home/volttron/configs
+      - ./EMSAgents/Config_RTAC:/code/volttron/Config_RTAC
+      - ./core:/startup
+      - volttron1-volume:/home/volttron/db
+    environment:
+      - CONFIG=/home/volttron/configs
+      - LOCAL_USER_ID=1000
+
+volumes:
+  volttron1-volume:
+    name: NIRE_SCADA-data

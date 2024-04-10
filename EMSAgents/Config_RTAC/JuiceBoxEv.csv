@@ -1,0 +1,12 @@
+Point Name,Volttron Point Name,Writable
+voltage,voltage,FALSE
+amps,amps,FALSE
+watts,watts,FALSE
+temperature,temperature,FALSE
+charge_time,charge_time,FALSE
+energy_added,energy_added,FALSE
+override_time,override_time,FALSE
+max_charging_amperage,max_charging_amperage,FALSE
+current_charging_amperage_limit,current_charging_amperage_limit,FALSE
+set_charging_amperage_limit,set_charging_amperage_limit,TRUE
+set_override,set_override,TRUE

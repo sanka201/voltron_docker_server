@@ -1,0 +1,3 @@
+Reference Point Name,Volttron Point Name,Units,Units Details,Modbus Register,Writable,Point Address,Notes
+VoltageA-N,VoltageA-N,V,0.00-230.00,>H,FALSE,40001,voltage reading 0.00-2000.0 
+VoltageB-N,VoltageB-N,V,0.00-230.00,>H,FALSE,40002,voltage reading 0.00-2000.0

@@ -1,0 +1,17 @@
+Reference Point Name,Volttron Point Name,Units,Units Details,Modbus Register,Writable,Point Address,Notes
+VOLTS A-N,VOLTS A-N,V,0.00-2000.00,>f,TRUE,999,CO2 Reading 0.00-2000.0 ppm
+VOLTS B-N,VOLTS B-N,V,1000.00 (default),>f,TRUE,1001,Setpoint to enable demand control ventilation
+VOLTS C-N,VOLTS C-N,V,1 through 13,>f,TRUE,1003,Status indicator of service switch
+VOLTS A-B,VOLTS A-B,V,0.00 to 100.00 (20 default),>f,TRUE,1005,Minimum damper position during the standard mode
+VOLTS B-C,VOLTS B-C,V,0.00-2000.00,>f,TRUE,1007,CO2 Reading 0.00-2000.0 ppm
+VOLTS C-A,VOLTS C-A,V,1000.00 (default),>f,TRUE,1009,Setpoint to enable demand control ventilation
+AMP A,AMP A,amps,1 through 13,>f,TRUE,1011,Status indicator of service switch
+AMP B,AMP B,amps,1 through 13,>f,TRUE,1013,Status indicator of service switch
+AMP C,AMP C,amps,1 through 13,>f,TRUE,1015,Status indicator of service switch
+Watts 3-Ph,Watts 3-Ph,watts,1 through 13,>f,TRUE,1017,Status indicator of service switch
+VAR 3-Ph,VAR 3-Ph,VARs,1 through 13,>f,TRUE,1019,Status indicator of service switch
+VAs 3-Ph,VAs 3-Ph,VAs,1 through 13,>f,TRUE,1021,Status indicator of service switch
+PF 3-Ph,PF 3-Ph,none,1 through 13,>f,TRUE,1023,Status indicator of service switch
+Frequency,Frequency,Hz,1 through 13,>f,TRUE,1025,Status indicator of service switch
+Neutral Current,Neutral Current,amps,1 through 13,>f,TRUE,1027,Status indicator of service switch
+

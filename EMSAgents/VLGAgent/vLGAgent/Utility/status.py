@@ -55,14 +55,14 @@ class Status_GLEAM_D2D(Status):
 
                   
         if topic =='record/building540':
-               self.__thresholds[1]=int(message['building540']['GAMS']['Solar_4'])
+               self.__thresholds[1]=int(message['building540']['GAMS']['Solar_6'])
                self.__thresholds[2]=int(message['building540']['GAMS']['Solar_5'])
-               self.__thresholds[3]=int(message['building540']['GAMS']['Solar_6'])   
+               self.__thresholds[3]=int(message['building540']['GAMS']['Solar_4'])   
                self.__GAMSHourFlag=int(message['building540']['GAMS']['GAMSHourFlag'])
                self.__timesync['GAMS_Hr']=int(message['building540']['GAMS']['Interruptible_24'])
-               print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%',self.__timesync)
+               #print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%',self.__timesync)
 
-               print('Threshold',self.__thresholds,'GAMSHourFlag',self.__GAMSHourFlag)
+               #print('Threshold',self.__thresholds,'GAMSHourFlag',self.__GAMSHourFlag)
         for ind in self.__loads.index:
             if topic =='record/GLEAMM':
             #    print('ttttttttttttttttttttttttest',(message[self.__loads['Site'][ind]][self.__loads['LoadType'][ind]][self.__loads['LoadID'][ind]]/self.__loads['Devider'][ind])*float(self.__loads['Multiplayer'][ind]))
@@ -84,7 +84,7 @@ class Status_GLEAM_D2D(Status):
 
         for i in self.__loads['Priority'].unique():
                  tempsum=self.__loads.loc[self.__loads['Priority']==i]['Consumption'].sum()
-                 print('Consum of the priority groups:',i,' = ',tempsum)
+                 #print('Consum of the priority groups:',i,' = ',tempsum)
  
             
         

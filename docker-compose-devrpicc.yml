@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   cc1:
+    network_mode: "host"
     container_name: cc1
     hostname: cc1
     build:

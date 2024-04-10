@@ -22,9 +22,10 @@ class Interface_GLEAMM(Interface):
         def __init__(self,vip):
             self.vip=vip
         def send_threshold(self,threshold,timesync):
-            
             self.vip.pubsub.publish(peer='pubsub',topic= 'GAMS/control/hourflag',message=0)
-            print("recive &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&TT",threshold)
+           # time.sleep(1)
+            #self.vip.pubsub.publish(peer='pubsub',topic= 'record/VLGThreshold',message=Message)
+            print("recive &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&TTTTTTTTTTTTTTT comand",threshold)
             time.sleep(1)
 
             for j in threshold:
@@ -42,9 +43,10 @@ class Interface_GLEAMM(Interface):
                     self.__Building_P(threshold[j],timesync)
                 elif j=='BuildingC':
                     self.__Building_C(threshold[j],timesync)
+                elif j=='RTACHREXTRA':
+                    self.__EV(threshold[j],timesync)
                 else:
                     pass
-                "Threashhold"
                     
         def __NIRE_WeMo_cc_1(self,threshold):
             print("NIRE_WeMo_cc_1",threshold)
@@ -66,6 +68,10 @@ class Interface_GLEAMM(Interface):
         def __Building_C(self,threshold,timesync):
            
             self.vip.pubsub.publish(peer='pubsub',topic= 'GLEAMM/HMIcontrol/Threshold/buildingC',message={"Threashhold":int(threshold)/1000,"Hour":int(timesync['GAMS_Hr'])})
+            print("BuildingC*********************************************************************",threshold)
+        def __EV(self,threshold,timesync):
+           
+            self.vip.pubsub.publish(peer='pubsub',topic= 'GLEAMM/HMIcontrol/Threshold/EV',message={"Threashhold":int(threshold)/1000,"Hour":int(timesync['GAMS_Hr'])})
             print("BuildingC*********************************************************************",threshold)
         def publish_priority_consumption(self,loads):
             for i in loads['Priority'].unique():
