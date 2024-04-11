@@ -223,7 +223,8 @@ has no "proxies" configuration.
 
 # Quck usfull commands
 
- ```sudo docker run  -d  --name NIRE_SCADA  -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup -e LOCAL_USER_ID=2000 44b
+ ```bash
+sudo docker run  -d  --name NIRE_SCADA  -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup -e LOCAL_USER_ID=2000 44b
 
 ```
 
