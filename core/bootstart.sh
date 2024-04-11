@@ -36,6 +36,7 @@ echo "Starting Volttron..."
 
 # Now spin up the volttron platform
 volttron -vv
+#volttron -L examples/rotatinglog.py > volttron.log 
 volttron_retcode=$?
 if [[ $volttron_retcode ]]; then
   echo "volttron error"

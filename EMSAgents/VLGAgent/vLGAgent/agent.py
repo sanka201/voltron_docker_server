@@ -8,9 +8,9 @@ import logging
 import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
-sys.path.insert(0, '/home/sanka/volttron/VLGAgent/vLGAgent/Utility')
-sys.path.insert(0, '/home/sanka/volttron/VLGAgent/vLGAgent/Core')
-sys.path.insert(0, '/home/sanka/volttron/VLGAgent/vLGAgent/Interface')
+sys.path.insert(0, '/code/volttron/VLGAgent/vLGAgent/Utility')
+sys.path.insert(0, '/code/volttron/VLGAgent/vLGAgent/Core')
+sys.path.insert(0, '/code/volttron/VLGAgent/vLGAgent/Interface')
 import VLG as VLG
 import Interface as Interface
 import status as status

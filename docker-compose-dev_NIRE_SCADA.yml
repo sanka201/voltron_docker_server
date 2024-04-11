@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   NIRE_SCADA:
-    network_mode: "host"
+    #network_mode: "host"
     container_name: NIRE_SCADA
     hostname: NIRE_SCADA
     build:
@@ -19,11 +19,11 @@ services:
       - ./platform_config_NIRE_SCADA.yml:/platform_config.yml
       - ./configs:/home/volttron/configs
       - ./core:/startup
-      - volttron1-volume:/home/volttron/db
+      - NIRE_SCADA-data:/home/volttron/db
     environment:
       - CONFIG=/home/volttron/configs
       - LOCAL_USER_ID=1000
 
 volumes:
-  volttron1-volume:
+  NIRE_SCADA-data:
     name: NIRE_SCADA-data

@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   Building_540:
-    network_mode: "host"
+    #network_mode: "host"
     container_name: Building_540
     hostname: Building_540
     build:
@@ -27,4 +27,4 @@ services:
 
 volumes:
   volttron1-volume:
-    name: NIRE_SCADA-data
+    name: Building_540-data

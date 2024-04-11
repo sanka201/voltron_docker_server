@@ -3,11 +3,11 @@
 # the values will be presented in the config file
 # as key=value
 config:
-  vip-address: tcp://192.168.10.254:22918
+  vip-address: tcp://0.0.0.0:22918
   # For rabbitmq this should match the hostname specified in
   # in the docker compose file hostname field for the service.
-  bind-web-address: https://192.168.10.254:8445
-  volttron-central-address: https://192.168.10.254:8445
+  #bind-web-address: https://192.168.10.254:8445
+  #volttron-central-address: https://192.168.10.254:8445
   instance-name: Building_540
   message-bus: zmq # allowed values: zmq, rmq
   # volttron-central-serverkey: a different key
@@ -22,10 +22,30 @@ agents:
      source: $VOLTTRON_ROOT/examples/ListenerAgent
      config: $CONFIG/listener.config
      tag: listener
-   
+   EMSDataForwarder:
+     source: $VOLTTRON_ROOT/OPAL/EMSDataForwader
+     config: $VOLTTRON_ROOT/OPAL/EMSDataForwader/config
+     tag: EMSDataForwarderagent
+   HMIControl:
+     source: $VOLTTRON_ROOT/OPAL/HMIcontrol
+     config: $VOLTTRON_ROOT/OPAL/HMIcontrol/config
+     tag: HMIControlagent
+   GAMSControl:
+     source: $VOLTTRON_ROOT/OPAL/GAMScontrolAgent
+     config: $VOLTTRON_ROOT/OPAL/GAMScontrolAgent/config
+     tag: GAMSControlagent
+
+
    platform.driver:
      source: $VOLTTRON_ROOT/services/core/PlatformDriverAgent
+
      config_store:
+    #Battery
+        registry_configs/Battery.csv:
+          file: $VOLTTRON_ROOT/Config_RTAC/Battery.csv
+          type: --csv
+        devices/building540/storage/Battery:
+          file: $VOLTTRON_ROOT/Config_RTAC/Battery.config
     #  #SMART METERS
     #     registry_configs/SM1.csv:
     #       file: $VOLTTRON_ROOT/Config_RTAC/SM2.csv
@@ -47,59 +67,30 @@ agents:
     #       type: --csv
     #     devices/building540/meters/SM4:
     #       file: $VOLTTRON_ROOT/Config_RTAC/SM4.config
-    # # BERGY
-    #     registry_configs/Bergey.csv:
-    #       file: $VOLTTRON_ROOT/Config_RTAC/registry_configs_bergey_reg.csv
-    #       type: --csv
-    #     devices/building540/meters/SM1:
-    #       file: $VOLTTRON_ROOT/Config_RTAC/Bergey.config
-    # Ecobee
-        # registry_configs/Ecobee.csv:
-        #   file: $VOLTTRON_ROOT/Config_RTAC/Ecobee.csv
-        #   type: --csv
-        # devices/building540/thermostat/Ecobee:
-        #   file: $VOLTTRON_ROOT/Config_RTAC/ecobee.config
-    # JuiceBoxEV
-        registry_configs/JuiceBoxEv.csv:
-          file: $VOLTTRON_ROOT/Config_RTAC/JuiceBoxEv.csv
+    # BERGY
+        registry_configs/Bergey.csv:
+          file: $VOLTTRON_ROOT/Config_RTAC/registry_configs_bergey_reg.csv
           type: --csv
-        devices/building540/thermostat/JuiceBoxEv:
-          file: $VOLTTRON_ROOT/Config_RTAC/JuiceBoxEv.config   
-    # GAMS
-        # registry_configs/GAMS.csv:
-        #   file: $VOLTTRON_ROOT/Config_RTAC/GAMS.csv
-        #   type: --csv
-        # devices/building540/thermostat/Ecobee:
-        #   file: $VOLTTRON_ROOT/Config_RTAC/GAMS.config
-      #  devices/building540/NIRE_WeMo_cc_1/w2:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver33.config
-      #  devices/building540/NIRE_WeMo_cc_1/w3:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver12.config
-      #  devices/building540/NIRE_WeMo_cc_1/w4:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver32.config          
-      #  devices/building540/NIRE_WeMo_cc_1/w5:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver20.config
-      #  devices/building540/NIRE_WeMo_cc_1/w6:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver30.config
-      #  devices/building540/NIRE_WeMo_cc_1/w7:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver24.config
-      #  devices/building540/NIRE_WeMo_cc_1/w8:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver43.config   
-      #  devices/building540/NIRE_WeMo_cc_1/w9:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver11.config
-      #  devices/building540/NIRE_WeMo_cc_1/w10:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver29.config
-      #  devices/building540/NIRE_WeMo_cc_1/w11:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver18.config
-      #  devices/building540/NIRE_WeMo_cc_1/w12:
-      #    file: $VOLTTRON_ROOT/Config2/wemo_driver10.config   
-     tag: Masterdriver
-
-  # # TLDR: If you want to install a Volttron Central Platform agent, you must first install the
-  # # Platform Driver before installing VCP agent
-  # # Additional: VolttronCentralPlatform requires Bacpypes, which gets installed only when Platform Driver is installed.
-  # # This is an unfortunate and not ideal setup, however, this issue will be addresed in a later PR so that VCP Agent
-  # # can be installed on its own without having to install Platform Driver first.
+        devices/building540/meters/Bergey:
+          file: $VOLTTRON_ROOT/Config_RTAC/Bergey.config
+    # # Ecobee
+    #     registry_configs/Ecobee.csv:
+    #       file: $VOLTTRON_ROOT/Config_RTAC/Ecobee.csv
+    #       type: --csv
+    #     devices/building540/thermostat/Ecobee:
+    #       file: $VOLTTRON_ROOT/Config_RTAC/ecobee.config
+    # JuiceBoxEV
+    #     registry_configs/JuiceBoxEv.csv:
+    #       file: $VOLTTRON_ROOT/Config_RTAC/JuiceBoxEv.csv
+    #       type: --csv
+    #     devices/building540/thermostat/JuiceBoxEv:
+    #       file: $VOLTTRON_ROOT/Config_RTAC/JuiceBoxEv.config   
+    # # GAMS
+    #     registry_configs/GAMS.csv:
+    #       file: $VOLTTRON_ROOT/Config_RTAC/GAMS.csv
+    #       type: --csv
+    #     devices/building540/GAMS:  
+    #  tag: Masterdriver
   # platform.agent:
   #   source: $VOLTTRON_ROOT/services/core/VolttronCentralPlatform
   #   config: $CONFIG/vcp.config
@@ -118,19 +109,7 @@ agents:
   #   source: $VOLTTRON_ROOT/services/core/VolttronCentral
   #   config: $CONFIG/vc.config
   #   tag: vc
-   EMSDataForwarder:
-     source: $VOLTTRON_ROOT/EMSDataForwader
-     config: $VOLTTRON_ROOT/EMSDataForwader/config
-     tag: EMSDataForwarderagent
-   HMIControl:
-     source: $VOLTTRON_ROOT/HMIcontrol
-     config: $VOLTTRON_ROOT/HMIcontrol/config
-     tag: HMIControlagent
 
-   GAMSControl:
-     source: $VOLTTRON_ROOT/GAMScontrolAgent
-     config: $VOLTTRON_ROOT/GAMScontrolAgent/config
-     tag: GAMSControlagent
 
 #  weather:
 #    source: $VOLTTRON_ROOT/examples/DataPublisher

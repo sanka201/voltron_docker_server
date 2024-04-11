@@ -7,5 +7,5 @@
   "setting5": 5.1, # Floating point numbers.
   "setting6": [1,2,3,4], #Lists
   "setting7": {"setting7a": "a", "setting7b": "b"} ,# Objects
-  "Loadconfigfile": "/home/sanka/volttron/VLGAgent/GLEAMM_Config.csv"
+  "Loadconfigfile": "/code/volttron/VLGAgent/GLEAMM_Config.csv"
 }

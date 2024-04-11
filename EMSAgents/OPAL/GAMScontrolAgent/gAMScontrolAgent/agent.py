@@ -9,7 +9,7 @@ import sys
 from volttron.platform.agent import utils
 from volttron.platform.vip.agent import Agent, Core, RPC
 
-sys.path.insert(0,'/home/sanka/volttron/GAMScontrolAgent/gAMScontrolAgent/Utilities/')
+sys.path.insert(0,'/code/volttron/OPAL/GAMScontrolAgent/gAMScontrolAgent/Utilities/')
 import commands as COM
 _log = logging.getLogger(__name__)
 utils.setup_logging()
