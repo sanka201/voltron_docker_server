@@ -236,3 +236,7 @@ Creating a custom docker bridge network
 sudo docker network create NIRE_SCADA_net  --subnet 10.0.0.0/19 --gateway 10.0.0.1
 
 ```
+Inspect a network 
+```bash
+sudo docker network inspect NIRE_SCADA_net
+```
