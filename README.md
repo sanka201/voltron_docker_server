@@ -224,7 +224,8 @@ has no "proxies" configuration.
 # Quick usfull commands
 
  ```bash
-sudo docker run  -d  --name NIRE_SCADA  -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup -e LOCAL_USER_ID=2000 44b
+sudo docker run  -d  --name Building_540 --network NIRE_SCADA_net --log-opt max-size=1m   -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup -e LOCAL_USER_ID=2000 volttron:Building_540_temp
+sudo docker run  -d --name NIRE_SCADA --network NIRE_SCADA_net  -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup  -p 22918:22918  -e LOCAL_USER_ID=2000 volttron:NIRE_SCADA_temp
 ```
 
 Ensure that the configuration for your forwarder is using the same volttron-central-address property in volttron config, which is set in your platform_config.yml file.
@@ -245,5 +246,6 @@ Save a container to an image
 docker save -o [filename].tar [image]
 docker save -o [filename].tar [image1] [image2] [image3] [...]
 docker load -i export.tar
-sudo docker save -o NIRE_SCADA_volttron_v1.tar 44b
+sudo docker save -o NIRE_SCADA_volttron_v1.tar volttron:NIRE_SCADA_temp
+sudo docker save -o Building_540_volttron_v1.tar volttron:Building_540_temp
 ```
