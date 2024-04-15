@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  GLEAMM:
+    #network_mode: "host"
+    container_name: GLEAMM
+    hostname: GLEAMM
+    build:
+      context: .
+      dockerfile: Dockerfile-dev_GLEAMM
+      args:
+        install_rmq: 'false'
+    image: eclipsevolttron/volttron:v-docker-dev-latest
+    ports:
+      # host_port:container_port
+      # http port for volttron central
+      - 8445:8445
+      - 22919:22919
+    volumes:
+      - ./platform_config_GLEAMM.yml:/platform_config.yml
+      - ./configs:/home/volttron/configs
+      - ./EMSAgents/Config_RTAC:/code/volttron/Config_RTAC
+      - ./core:/startup
+      - GLEAMM-volume:/home/volttron/db
+    environment:
+      - CONFIG=/home/volttron/configs
+      - LOCAL_USER_ID=1000
+
+volumes:
+  GLEAMM-volume:
+    name: GLEAMM-data
