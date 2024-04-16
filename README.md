@@ -220,8 +220,8 @@ has no "proxies" configuration.
 
 *My Forwarder shows a BAD status when I run `vctl status`*
 
-
-# Quick usfull commands
+# NIRE VOLTTRON implementation
+## Quick usfull commands
 
  ```bash
 sudo docker run  -d --name GLEAMM --network NIRE_SCADA_net  --log-opt max-size=10m --log-opt max-file=5 --restart always  -v /ho
@@ -257,7 +257,7 @@ sudo docker save -o NIRE_SCADA_volttron_v1.tar volttron:NIRE_SCADA_temp
 sudo docker save -o Building_540_volttron_v1.tar volttron:Building_540_temp
 ```
 
-# Volttron docker container deployment steps for locally saved docker images
+## Volttron docker container deployment steps for locally saved docker images
 #### Create the custom docker bridge network 
   ```bash
 sudo docker network create NIRE_SCADA_net  --subnet 10.0.0.0/19 --gateway 10.0.0.1
