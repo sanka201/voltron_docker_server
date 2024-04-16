@@ -257,14 +257,60 @@ sudo docker save -o NIRE_SCADA_volttron_v1.tar volttron:NIRE_SCADA_temp
 sudo docker save -o Building_540_volttron_v1.tar volttron:Building_540_temp
 ```
 
-# Volttron docker container deployment steps
-*Create the custom docker bridge network 
+# Volttron docker container deployment steps for locally saved docker images
+#### Create the custom docker bridge network 
   ```bash
 sudo docker network create NIRE_SCADA_net  --subnet 10.0.0.0/19 --gateway 10.0.0.1
 ```
-* Inspect the network to check the status
+#### Inspect the network to check the status
   ```bash
 sudo docker network inspect NIRE_SCADA_net
 ```
+#### Load docker images 
+``` bash
+sudo docker load -i /home/sanka/NIRE_EMS/DOCKER_DEV/Docker-images/Building_540_volttron_v1.tar
+sudo docker load -i /home/sanka/NIRE_EMS/DOCKER_DEV/Docker-images/GLEAMM_volttron_v1.tar
+sudo docker load -i /home/sanka/NIRE_EMS/DOCKER_DEV/Docker-images/NIRE_SCADA_volttron_v1.tar
+```
+#### Check images
+```bash
+sudo docker images
+```
+#### Deploy docker containers
+GLEAMM container
+```bash
+sudo docker run  -d --name GLEAMM --network NIRE_SCADA_net  --log-opt max-size=10m --log-opt max-file=5 --restart always  -v /ho
+me/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_GLEAMM.yml:/platform_config.yml -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup  -p 22919:22919 
+ -e LOCAL_USER_ID=2000 volttron:GLEAMM
+```
+Building 540 container
+```bash
+sudo docker run  -d  --name Building_540 --network NIRE_SCADA_net --log-opt max-size=10m --log-opt max-file=5 --restart always  
+ -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_Building_540.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/c
+ore:/startup -e LOCAL_USER_ID=2000 volttron:Building_540_temp
+```
+NIRE SCADA container
 
+```bash
+sudo docker run  -d --name NIRE_SCADA --network NIRE_SCADA_net  --log-opt max-size=10m --log-opt max-file=5 --restart always  -v
+ /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup  -p 2291
+8:22918  -e LOCAL_USER_ID=2000 volttron:NIRE_SCADA_temp1
+```
 
+#### Check for running docker containers
+
+```bash
+sudo docker ps
+```
+#### Check the output of the container
+
+```bash
+sudo docker logs -f NIRE_SCADA
+sudo docker logs -f GLEAMM
+sudo docker logs -f Building_540
+```
+#### Inspect the docker network
+
+```bash
+sudo docker network inspect NIRE_SCADA_net
+```
