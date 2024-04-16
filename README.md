@@ -256,3 +256,15 @@ docker load -i export.tar
 sudo docker save -o NIRE_SCADA_volttron_v1.tar volttron:NIRE_SCADA_temp
 sudo docker save -o Building_540_volttron_v1.tar volttron:Building_540_temp
 ```
+
+# Volttron docker container deployment steps
+*Create the custom docker bridge network 
+  ```bash
+sudo docker network create NIRE_SCADA_net  --subnet 10.0.0.0/19 --gateway 10.0.0.1
+```
+* Inspect the network to check the status
+  ```bash
+sudo docker network inspect NIRE_SCADA_net
+```
+
+
