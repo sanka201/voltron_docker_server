@@ -224,8 +224,15 @@ has no "proxies" configuration.
 # Quick usfull commands
 
  ```bash
-sudo docker run  -d  --name Building_540 --network NIRE_SCADA_net --log-opt max-size=1m   -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup -e LOCAL_USER_ID=2000 volttron:Building_540_temp
-sudo docker run  -d --name NIRE_SCADA --network NIRE_SCADA_net  -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup  -p 22918:22918  -e LOCAL_USER_ID=2000 volttron:NIRE_SCADA_temp
+sudo docker run  -d --name GLEAMM --network NIRE_SCADA_net  --log-opt max-size=10m --log-opt max-file=5 --restart always  -v /ho
+me/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_GLEAMM.yml:/platform_config.yml -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup  -p 22919:22919 
+ -e LOCAL_USER_ID=2000 volttron:GLEAMM
+sudo docker run  -d  --name Building_540 --network NIRE_SCADA_net --log-opt max-size=10m --log-opt max-file=5 --restart always  
+ -v /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_Building_540.yml:/platform_config.yml -p 22917:22917  -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/c
+ore:/startup -e LOCAL_USER_ID=2000 volttron:Building_540_temp
+sudo docker run  -d --name NIRE_SCADA --network NIRE_SCADA_net  --log-opt max-size=10m --log-opt max-file=5 --restart always  -v
+ /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/platform_config_NIRE_SCADA.yml:/platform_config.yml -v    /home/sanka/NIRE_EMS/DOCKER_DEV/volttron_docker_main/core:/startup  -p 2291
+8:22918  -e LOCAL_USER_ID=2000 volttron:NIRE_SCADA_temp1
 ```
 
 Ensure that the configuration for your forwarder is using the same volttron-central-address property in volttron config, which is set in your platform_config.yml file.
