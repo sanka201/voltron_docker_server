@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  cc1:
+    container_name: cc1
+    hostname: cc1
+    build:
+      context: .
+      dockerfile: Dockerfile-devrpicc
+      args:
+        install_rmq: 'false'
+    image: debianvolttron/volttron:v-docker-dev-latest
+    ports:
+      # host_port:container_port
+      # http port for volttron central
+      - 8444:8444
+    volumes:
+     # - ./platform_config.yml:/platform_config.yml
+     # - ./configs:/home/volttron/configs
+      #- ./core:/startup
+      #- volttron1-volume:/home/volttron/db
+    environment:
+      - CONFIG=/home/volttron/configs
+      - LOCAL_USER_ID=1000
+
+volumes:
+  volttron1-volume:
+    name: cc1-data

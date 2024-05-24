@@ -1,0 +1,31 @@
+          #print("Error priority",i,"eee", err)
+            if err>=0:
+                print("shedding..............")
+                for j in self.__loads.loc[self.__loads['Priority']==i]['Controller'].unique():
+                    tempsum=self.__loads.loc[(self.__loads['Priority']==i) & (self.__loads['Controller']==j)]['Consumption'].sum()
+                    calc= abs(err)-tempsum
+                    
+                    
+                    if calc>=0:
+                        consump[j]=consump[j]-tempsum#consump[j]=0+consump[j]
+                        err=abs(err)-tempsum
+                        print(j,tempsum,consump[j],err)
+
+                    else:
+                        consump[j]=consump[j]+calc#+consump[j]
+                        print(j,tempsum,consump[j],err)
+                      #  print("breaking")
+                        break
+                   print("Incrementing..........")
+                
+               # for j in self.__loads.loc[self.__loads['Priority']==i]['Controller'].unique():
+                #    tempsum=self.__loads.loc[(self.__loads['Priority']==i) & (self.__loads['Controller']==j)]['Consumption'].sum()
+                 #   controlmax=self.__loads.loc[(self.__loads['Priority']==i) & (self.__loads['Controller']==j)]['Controller_Max'].sum()
+                  #  calc=abs(err)-(controlmax-tempsum)
+                   # print('Error########',j,calc,err)
+                    #if calc>=0:
+                     #   consump[j]=controlmax-abs(err)
+                      #  err=calc
+                   # else:
+                    #    consump[j]=abs(err)+consump[j]
+                     #   break

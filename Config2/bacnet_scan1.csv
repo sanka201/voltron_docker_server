@@ -1,0 +1,2 @@
+address,device_id,max_apdu_length,segmentation_supported,vendor_id
+1:192.168.128.170,3778,1024,noSegmentation,191

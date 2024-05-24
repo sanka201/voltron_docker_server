@@ -1,0 +1,105 @@
+# Properties to be added to the root config file
+# the properties should be ingestible for volttron
+# the values will be presented in the config file
+# as key=value
+config:
+  vip-address: tcp://0.0.0.0:22900
+  # For rabbitmq this should match the hostname specified in
+  # in the docker compose file hostname field for the service.
+  #bind-web-address: https://0.0.0.0:8444
+  #volttron-central-address: https://0.0.0.0:8444
+  instance-name: NIRE_WeMo_CC_1
+  message-bus: zmq # allowed values: zmq, rmq
+  # volttron-central-serverkey: a different key
+
+# Agents dictionary to install. The key must be a valid
+# identity for the agent to be installed correctly.
+agents:
+  # Each agent identity.config file should be in the configs
+  # directory and will be used to install the agent.
+  listener:
+    source: $VOLTTRON_ROOT/examples/ListenerAgent
+    config: $CONFIG/listener.config
+    tag: listener
+
+  platform.driver:
+    source: $VOLTTRON_ROOT/services/core/PlatformDriverAgent
+    config_store:
+      #fake.csv:
+      # file: $VOLTTRON_ROOT/examples/configurations/drivers/fake.csv
+      #type: --csv
+      #devices/fake-campus/fake-building/fake-device:
+      # file: $VOLTTRON_ROOT/examples/configurations/drivers/fake.config
+
+      registry_configs/csv_reg.csv:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/csv_reg.csv
+        type: --csv
+      devices/building540/NIRE_WeMo_cc_1/w1:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver26.config
+      devices/building540/NIRE_WeMo_cc_1/w2:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver33.config
+      devices/building540/NIRE_WeMo_cc_1/w3:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver12.config
+      devices/building540/NIRE_WeMo_cc_1/w4:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver32.config
+      devices/building540/NIRE_WeMo_cc_1/w5:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver20.config
+      devices/building540/NIRE_WeMo_cc_1/w6:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver30.config
+      devices/building540/NIRE_WeMo_cc_1/w7:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver24.config
+      devices/building540/NIRE_WeMo_cc_1/w8:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver43.config
+      devices/building540/NIRE_WeMo_cc_1/w9:
+        file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver11.config
+      devices/building540/NIRE_WeMo_cc_1/w10:
+          file: $VOLTTRON_ROOT/EMSAgents/Config2/wemo_driver29.config
+      #  devices/building540/NIRE_WeMo_cc_1/w11:
+      #    file: $VOLTTRON_ROOT/Config2/wemo_driver18.config
+      #  devices/building540/NIRE_WeMo_cc_1/w12:
+      #    file: $VOLTTRON_ROOT/Config2/wemo_driver10.config
+    tag: Masterdriver
+
+  # # TLDR: If you want to install a Volttron Central Platform agent, you must first install the
+  # # Platform Driver before installing VCP agent
+  # # Additional: VolttronCentralPlatform requires Bacpypes, which gets installed only when Platform Driver is installed.
+  # # This is an unfortunate and not ideal setup, however, this issue will be addresed in a later PR so that VCP Agent
+  # # can be installed on its own without having to install Platform Driver first.
+  # platform.agent:
+  #   source: $VOLTTRON_ROOT/services/core/VolttronCentralPlatform
+  #   config: $CONFIG/vcp.config
+  #   tag: vcp
+
+  # platform.actuator:
+  #   source: $VOLTTRON_ROOT/services/core/ActuatorAgent
+  #   tag: actuator
+
+  # platform.historian:
+  #   source: $VOLTTRON_ROOT/services/core/SQLHistorian
+  #   config: $CONFIG/historian.config
+  #   tag: historian
+
+  # volttron.central:
+  #   source: $VOLTTRON_ROOT/services/core/VolttronCentral
+  #   config: $CONFIG/vc.config
+  #   tag: vc
+#  PshaverAgent:
+ #   source: $VOLTTRON_ROOT/EMSAgents/PshaverGMagent
+  #  config: $VOLTTRON_ROOT/EMSAgents/PshaverGMagent/config
+   # tag: PshaverAgent
+
+  LPCCCAgent:
+    source: $VOLTTRON_ROOT/EMSAgents/LPCCCAgent
+    config: $VOLTTRON_ROOT/EMSAgents/LPCCCAgent/config
+    tag: LPCCCAgent
+#  weather:
+#    source: $VOLTTRON_ROOT/examples/DataPublisher
+#    config: $CONFIG/weather.config
+
+#  price:
+#    source: $VOLTTRON_ROOT/examples/DataPublisher
+#    config: $CONFIG/price.config
+
+#  platform.bacnet_proxy:
+#    source: $VOLTTRON_ROOT/services/core/BACnetProxy
+#    config: $CONFIG/bacnet-proxy.json

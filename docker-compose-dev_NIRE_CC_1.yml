@@ -1,0 +1,29 @@
+version: '3.4'
+services:
+  NIRE_CC_1:
+    container_name: NIRE_CC_1
+    hostname: NIRE_CC_1
+    build:
+      context: .
+      dockerfile: Dockerfile-dev_NIRE_CC_1
+      args:
+        install_rmq: 'false'
+    image: eclipsevolttron/volttroncc2:v-docker-dev-latest
+    ports:
+      # host_port:container_port
+      # http port for volttron central
+      
+      - 22900:22900
+    volumes:
+      - ./platform_config_nirecc1.yml:/platform_config.yml
+      - ./configs:/home/volttron/configs
+      - ./EMSAgents:/code/volttron/EMSAgents
+      - ./core:/startup
+      - ./cc2-volume:/home/volttron/db
+    environment:
+      - CONFIG=/home/volttron/configs
+      - LOCAL_USER_ID=1000
+
+volumes:
+  NIRE_CC_1-volume:
+    name: NIRE_CC_1-data
