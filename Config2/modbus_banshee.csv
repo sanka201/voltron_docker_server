@@ -1,0 +1,7 @@
+Reference Point Name,Volttron Point Name,Units,Units Details,Modbus Register,Writable,Point Address,Default Values, Notes
+Sw1_P,Sw1_P,W,0.00-2000.00,>h,TRUE,0,,Reading 0.00-2000.0 W
+Sw2_P,Sw2_P,W,0.00-2000.00,>h,TRUE,1,Reading 0.00-2000.0 W,
+Sw1_CMD,Sw1_CMD,W,0.00-2000.00,>h,TRUE,2,,Reading 0.00-2000.0 W
+Sw2_CMD,Sw2_CMD,W,0.00-2000.00,>h,TRUE,3,,Reading 0.00-2000.0 W
+AUX_1,AUX_1,W,0.00-2000.00,>h,TRUE,20,,Reading 0.00-2000.0 W
+AUX_2,AUX_2,W,0.00-2000.00,>h,TRUE,21,,Reading 0.00-2000.0 W

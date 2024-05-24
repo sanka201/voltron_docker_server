@@ -1,5 +1,7 @@
 Volttron Point Name,Point Name,Writable
 power,power,TRUE
-status,state,TRUE
-average,average,TRUE
+state,state,TRUE
+total,total,TRUE
 priority,priority,TRUE
+current,current,TRUE
+voltage,voltage,TRUE
